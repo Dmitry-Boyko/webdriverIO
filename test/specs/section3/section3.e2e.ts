@@ -80,9 +80,17 @@ describe('section 3', () => {
     await $('button=Add Element').click()
     await browser.debug()
   })
-  it.only('input text', async () => {
+  it('input text', async () => {
     await browser.url('https://jquery.com/')
     await $('[name="s"]').setValue('My test')
     await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input.png')
+  })
+
+    it('add input text', async () => {
+    await browser.url('https://jquery.com/')
+    await $('[name="s"]').setValue('My test')
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input1.png')
+     await $('[name="s"]').addValue(' is crazy')
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input2.png')
   })
 })
