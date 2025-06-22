@@ -86,11 +86,22 @@ describe('section 3', () => {
     await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input.png')
   })
 
-    it('add input text', async () => {
+  it('add input text', async () => {
     await browser.url('https://jquery.com/')
     await $('[name="s"]').setValue('My test')
     await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input1.png')
-     await $('[name="s"]').addValue(' is crazy')
+    await $('[name="s"]').addValue(' is crazy')
     await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input2.png')
+    await $('[name="s"]').clearValue()
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input-clear.png')
+  })
+
+  it('keyboard key action', async () => {
+    await browser.url('https://jquery.com/')
+    await $('[name="s"]').click()
+    await browser.keys("footprint")
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-footprint.png')
+     await browser.keys("\uE003\uE003\uE003\uE003\uE003") // '\uE003' => backScape key
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-foot.png')
   })
 })
