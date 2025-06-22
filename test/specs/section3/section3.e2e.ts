@@ -54,4 +54,35 @@ describe('section 3', () => {
     console.log(text)
     }
   })
+
+  it('map -> google hiperlinks', async () => {
+    await browser.url('https://google.com/')
+    var elems = await $$('<a />')
+    const result = []
+    for (const item of elems) {
+      result.push(await item.getAttribute('href'))
+    }
+    console.log('Links on the webpage: ')
+    console.log((result))
+  })
+
+   it('map -> scrolling', async () => {
+    await browser.url('https://the-internet.herokuapp.com/')
+    await browser.saveScreenshot('./screenshots/tc-before.png')
+
+    await $('#page-footer').scrollIntoView()
+    await browser.saveScreenshot('./screenshots/tc-after.png')
+  })
+
+  it('click on the button', async () => {
+    await browser.url('https://the-internet.herokuapp.com/add_remove_elements/')
+    await browser.debug()
+    await $('button=Add Element').click()
+    await browser.debug()
+  })
+  it.only('input text', async () => {
+    await browser.url('https://jquery.com/')
+    await $('[name="s"]').setValue('My test')
+    await $('[name="s"]').saveScreenshot('./screenshots/tc-text-input.png')
+  })
 })
