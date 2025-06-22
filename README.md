@@ -8,4 +8,6 @@
 
 # to rn test: yarn wdio run wdio.conf.ts
 
+# To run tests from the specific folder: yarn wdio run wdio.conf.ts --spec ./test/specs/<folderName>/*.ts 
+
 
