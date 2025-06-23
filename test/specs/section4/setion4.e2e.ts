@@ -1,7 +1,7 @@
 // yarn wdio run wdio.conf.ts --spec ./test/specs/section4/*.ts
 import elementActions from "../../pageobjects/elementActions"
 import helpers from "../../pageobjects/helper"
-
+import { expect, assert } from 'chai'
 
 describe ('elementsverification and interaction check', () => {
   it('wait until element present', async () => {
@@ -55,5 +55,15 @@ describe ('elementsverification and interaction check', () => {
     const checkbox = await $$('input[type="checkbox"]')
     await helpers.selectCheckbox(checkbox[0])
     await helpers.isCheckboxChecked(checkbox[0])
+  })
+
+  it('should verify checkbox is checked', async () => {  
+    await browser.url('https://the-internet.herokuapp.com/checkboxes')
+    const checkbox = await $$('input[type="checkbox"]')
+    await checkbox[0].click()
+
+    const isChecked = await checkbox[0].isSelected()
+    await assert.isOk(isChecked, 'Error: Checkbox is not selected')
+    await browser.pause(5000)
   })
 })
