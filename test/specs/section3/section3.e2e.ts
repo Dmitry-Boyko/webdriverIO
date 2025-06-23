@@ -116,4 +116,26 @@ describe('section 3', () => {
     await $('span=Recruitment').click()
     await browser.pause(5000)
   })
+
+  it('dropdown-list', async () => {
+    await browser.url('https://the-internet.herokuapp.com/dropdown')
+    await $('#dropdown').selectByAttribute('value', '1')
+    await $('#dropdown').selectByIndex(2)
+    await $('#dropdown').selectByVisibleText('Option 1')
+  })
+
+  it('drag-and-drop', async () => {
+    await browser.url('https://jqueryui.com/resources/demos/droppable/default.html')
+    await $('#draggable').dragAndDrop(await $('#droppable'))
+    await browser.pause(5000)
+  })
+
+  it('upoad -download', async () => {
+    await browser.url('https://the-internet.herokuapp.com/upload')
+    await $('#file-upload').addValue('C:/workspace/Udemy/webdriverIO/screenshots/tc-foot.png')
+    await $('#file-submit').click()
+
+    const elem = await $('#uploaded-files')
+    await expect(elem).toHaveText('tc-foot.png')
+  })
 })
