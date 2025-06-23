@@ -15,20 +15,6 @@ class Helpers {
     }
   }
 
-  async selectCheckboxStr(selector: string): Promise<void> {
-    const checkbox = await $(selector)
-    const isSelected = await checkbox.isSelected()
-
-    if (!isSelected) {
-        await checkbox.click()
-    }
-  }
-
-  async isCheckboxCheckedStr(selector: string): Promise<boolean> {
-    const checkbox = await $(selector)
-    return await checkbox.isSelected()
-  }
-
   async selectCheckbox(checkbox: ChainablePromiseElement): Promise<void> {
     const isSelected = await checkbox.isSelected();
     if (!isSelected) {
