@@ -1,4 +1,5 @@
-import elementActions from '../../pageobjects/ElementActions'
+// yarn wdio run wdio.conf.ts --spec ./test/specs/section3/*.ts
+import elementActions from "../../pageobjects/elementActions"
 
 describe('section 3', () => {
 
