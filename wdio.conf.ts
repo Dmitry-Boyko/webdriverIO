@@ -186,6 +186,9 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
+    before: async () => {
+        await browser.setWindowSize(1280, 800);
+    }
     // before: function (capabilities, specs) {
     // },
     /**
