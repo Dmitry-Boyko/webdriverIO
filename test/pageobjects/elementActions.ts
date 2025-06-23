@@ -1,6 +1,4 @@
-import Page from "./page";
-
-class ElementActions extends Page {
+class ElementActions {
     /**
      * Clicks a button identified by its visible text.
      * @param {string} buttonName The exact text displayed on the button.

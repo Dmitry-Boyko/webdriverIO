@@ -1,4 +1,7 @@
+import elementActions from '../../pageobjects/ElementActions'
+
 describe('section 3', () => {
+ 
   // it('tc001', async () => {
   //   await browser.url('https://google.com')
   //   await browser.debug()
@@ -76,8 +79,8 @@ describe('section 3', () => {
 
   it('click on the button', async () => {
     await browser.url('https://the-internet.herokuapp.com/add_remove_elements/')
-    await browser.debug()
-    await $('button=Add Element').click()
+    //await $('button=Add Element').click()
+    await elementActions.clickButtonByName('Add Element')
     await browser.debug()
   })
   it('input text', async () => {
