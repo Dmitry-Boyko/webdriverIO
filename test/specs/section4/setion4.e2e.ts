@@ -4,6 +4,16 @@ import helpers from "../../pageobjects/helper"
 
 
 describe ('elementsverification and interaction check', () => {
+  it('wait until element present', async () => {
+    await browser.url('https://the-internet.herokuapp.com/dynamic_controls')
+    var elem = await $('input[type="text"]')
+   await $('button=Enable').click()
+   await elem.waitForEnabled({
+    timeout: 10000
+   })
+   console.log(`Result: ${await $('#message').getText()}`)
+  })
+
   it('check if element present', async () => {
     await browser.url('https://the-internet.herokuapp.com/dynamic_loading/2')
     var elem = await $('#finish')
