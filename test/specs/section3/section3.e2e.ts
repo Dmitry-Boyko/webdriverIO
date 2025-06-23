@@ -1,11 +1,6 @@
 import elementActions from '../../pageobjects/ElementActions'
 
 describe('section 3', () => {
- 
-  // it('tc001', async () => {
-  //   await browser.url('https://google.com')
-  //   await browser.debug()
-  // })
 
   it('authentication', async () => {
     const paragraph = await $('p')
@@ -106,5 +101,19 @@ describe('section 3', () => {
     await $('[name="s"]').saveScreenshot('./screenshots/tc-footprint.png')
      await browser.keys("\uE003\uE003\uE003\uE003\uE003") // '\uE003' => backScape key
     await $('[name="s"]').saveScreenshot('./screenshots/tc-foot.png')
+  })
+
+  it('mouse hover', async () => {
+    await browser.url('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    await $('[name="username"]').setValue('Admin')
+    await $('[name="password"]').setValue('admin123')
+    await $('.orangehrm-login-button').click()
+
+    await $('span=Admin').moveTo()
+    await browser.pause(5000)
+    await $('span=My Info').moveTo()
+    await browser.pause(5000)
+    await $('span=Recruitment').click()
+    await browser.pause(5000)
   })
 })
