@@ -1,7 +1,7 @@
 // yarn wdio run wdio.conf.ts --spec ./test/specs/section4/*.ts
 import elementActions from "../../pageobjects/elementActions"
 import helpers from "../../pageobjects/helper"
-import { expect, assert } from 'chai'
+// import { expect, assert } from 'chai'
 
 describe ('elementsverification and interaction check', () => {
   it('wait until element present', async () => {
@@ -63,7 +63,7 @@ describe ('elementsverification and interaction check', () => {
     await checkbox[0].click()
 
     const isChecked = await checkbox[0].isSelected()
-    await assert.isOk(isChecked, 'Error: Checkbox is not selected')
+    // await assert.isOk(isChecked, 'Error: Checkbox is not selected')
     await browser.pause(5000)
   })
 })

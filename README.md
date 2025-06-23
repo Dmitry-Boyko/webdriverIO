@@ -10,4 +10,9 @@
 
 # To run tests from the specific folder: yarn wdio run wdio.conf.ts --spec ./test/specs/<folderName>/*.ts 
 
+# add reporter Allure:  yarn add --dev allure-commandline
+# yarn allure:generate ; yarn allure:open
+
+
+
 
