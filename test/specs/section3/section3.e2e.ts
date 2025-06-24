@@ -125,6 +125,16 @@ describe('section 3', () => {
     await $('#dropdown').selectByVisibleText('Option 1')
   })
 
+  it('should focus the text field after click', async () => {
+    await browser.url('https://the-internet.herokuapp.com/dropdown')
+
+    const input = await $('#draggable');
+    await input.click();
+
+    const isFocused = await input.isFocused();
+    expect(isFocused).toBe(true); // WebdriverIO's built-in expect
+  })
+
   it('drag-and-drop', async () => {
     await browser.url('https://jqueryui.com/resources/demos/droppable/default.html')
     await $('#draggable').dragAndDrop(await $('#droppable'))
